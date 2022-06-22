@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.Region;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
 import reactor.core.scheduler.Schedulers;
@@ -45,7 +46,8 @@ public class ApplicationController implements Initializable {
     }
 
 
-    private void listAllComputers() {
+    public void listAllComputers() {
+        computerTable.getItems().clear();
         WebClient webClient = WebClient.create(API_BASE_URL);
         Flux<Computer> computersFlux = webClient.get()
                 .uri("/computers")
@@ -56,18 +58,19 @@ public class ApplicationController implements Initializable {
                 .subscribe(computerTable.getItems()::add);
     }
 
+
+
+
+
     @FXML
     public void searchComputer(ActionEvent event) {
         computerTable.getItems().clear();
-
-
-
         String searchText = computerIDText.getText();
         computerIDText.clear();
         computerIDText.requestFocus();
         WebClient webClient = WebClient.create(API_BASE_URL);
         Flux<Computer> computersFlux = webClient.get()
-                .uri("/computers/"+ "ObjectId('" + searchText+ "')")
+                .uri("/computersbrand?brand=" + searchText)
                 .retrieve()
                 .bodyToFlux(Computer.class);
 
@@ -101,9 +104,10 @@ public class ApplicationController implements Initializable {
          */
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setContentText("Id del ordenador="+ idComputer +", marca del ordenador=" +
-                brandComputer + " modelo del ordenador="+ modelComputer +
-                ", gigas de RAM del oredenador = "+ ramComputer);
+        alert.setContentText("Id del ordenador="+ idComputer +",   marca del ordenador= " +
+                brandComputer + ",   modelo del ordenador="+ modelComputer +
+                ",   gigas de RAM del oredenador = "+ ramComputer);
+        alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
         alert.show();
 
 

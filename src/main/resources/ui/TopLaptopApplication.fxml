@@ -20,6 +20,7 @@
             <Label prefHeight="18.0" prefWidth="70.0" text="Computer ID" />
             <TextField fx:id="computerIDText" />
             <Button fx:id="searchButton" mnemonicParsing="false" onAction="#searchComputer" prefHeight="26.0" prefWidth="113.0" text="Search pc" />
+            <Button mnemonicParsing="false" onAction="#listAllComputers" text="Listar todos" />
             <Button mnemonicParsing="false" onAction="#computerInformation" text="Mas info" />
          </children>
          <BorderPane.margin>

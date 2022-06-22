@@ -19,6 +19,7 @@
             <TextField fx:id="computerIDText" />
             <Button fx:id="searchButton" mnemonicParsing="false" onAction="#searchComputer" prefHeight="26.0" prefWidth="90.0" text="Search pc" />
             <Button mnemonicParsing="false" onAction="#computerInformation" text="Mas info" />
+            <Button fx:id="searchButton1" mnemonicParsing="false" onAction="#listAllComputers" prefHeight="26.0" prefWidth="90.0" text="Listar todos" />
          </children>
          <BorderPane.margin>
             <Insets left="10.0" right="10.0" top="20.0" />

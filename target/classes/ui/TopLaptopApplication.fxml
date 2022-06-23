@@ -42,11 +42,6 @@
    <bottom>
       <HBox alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="statusLabel" text="Label">
-               <HBox.margin>
-                  <Insets right="20.0" />
-               </HBox.margin>
-            </Label>
             <ProgressBar fx:id="progressBar" prefWidth="200.0" visible="false">
                <opaqueInsets>
                   <Insets left="20.0" />
